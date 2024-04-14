@@ -1,0 +1,7 @@
+To exclude instances with volumes larger than 250 GB and EKS instances from your encryption script, you can follow these recommendations:
+
+    Exclude Instances with Volumes Larger than 250 GB: When running your script or command, you can implement a condition to exclude instances that have volumes exceeding 250 GB. By checking the volume size before initiating the encryption process, you can ensure that only instances with volumes within the desired range are encrypted.
+
+    Exclude EKS Instances: It is important to note that using your script to encrypt EKS volumes may not be the recommended approach. Instead, you can consider utilizing EKS' new node group and Launch template with encryption enabled. This approach ensures that EKS volumes are properly encrypted without any potential issues.
+
+Alternatively, you can explore other approaches that best suit your specific requirements. It's always a good practice to stay informed about alternative methods and choose the one that aligns with your needs and preferences.
