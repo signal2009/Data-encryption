@@ -44,29 +44,39 @@ def get_cluster_instances(cluster_name):
         print(f"Error retrieving instances for cluster {cluster_name}: {e}")
         return []
 
+def write_logs_to_file(logs, file_path):
+    with open(file_path, 'w') as file:
+        for log in logs:
+            file.write(log + '\n')
+
 def main():
+    logs = []  # List to store the logs
+
     # Get the list of EKS clusters
     clusters = get_eks_clusters()
     
     if clusters:
-        print("EKS Clusters and Instances:")
+        logs.append("EKS Clusters and Instances:")
         for cluster in clusters:
-            print(f"\nCluster: {cluster}")
+            logs.append(f"\nCluster: {cluster}")
             
             # Get the instances for the current cluster
             instances = get_cluster_instances(cluster)
             
             if instances:
-                print("Instances:")
+                logs.append("Instances:")
                 for instance in instances:
-                    print(f"  - Instance ID: {instance['InstanceId']}")
-                    print(f"    Instance Type: {instance['InstanceType']}")
-                    print(f"    Private IP: {instance['PrivateIpAddress']}")
-                    print(f"    Public IP: {instance.get('PublicIpAddress', 'N/A')}")
+                    logs.append(f"  - Instance ID: {instance['InstanceId']}")
+                    logs.append(f"    Instance Type: {instance['InstanceType']}")
+                    logs.append(f"    Private IP: {instance['PrivateIpAddress']}")
+                    logs.append(f"    Public IP: {instance.get('PublicIpAddress', 'N/A')}")
             else:
-                print("No instances found for the cluster.")
+                logs.append("No instances found for the cluster.")
     else:
-        print("No EKS clusters found.")
+        logs.append("No EKS clusters found.")
+    
+    # Write the logs to a file
+    write_logs_to_file(logs, 'eks_cluster_logs.txt')
 
 if __name__ == '__main__':
     main()
