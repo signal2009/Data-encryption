@@ -8,7 +8,7 @@ import logging
 VOLUME_DETAILS_LIST = []
 PENDING_SNAPSHOTS = []
 FAILED_SNAPSHOTS = []
-EXCLUDED_INSTANCES = []  # Add your instance IDs here
+EXCLUDED_INSTANCES = ["i-0c9b0f3c9ef20844f","i-06614e6c32fdd91a4","i-0c040c4f7a132269b","i-03edef24bacf66c0e","i-0c99f03e0ce758a3f","i-084a5839268954c72","i-0c7a7804f2ee94fac","i-005da6ce8b73bad9b","i-03a5f91f8f2b99144","i-042c3ec4ce01d91ea","i-06a2f96f7b4696efc","i-0ae79b01a1edef960","i-09d47988275275e19","i-0a99fc64280ce6855","i-0d9ea070d2dd5cd13","i-0e6cbe5ecd5f92fa3","i-02402fa59c575b43f","i-0e54c9a4b7dfbf4bb","i-0176c49c07fd241df","i-0f75bec77eb76e2d1","i-0f655ee2cb3b86e32","i-024dadf0a0e130fbf","i-00ac08a74aa3c3e6b","i-0bbdcf3745257459b","i-0a23b1a941f26b90b","i-0cd082c492824b31a","i-067e83f83906c1f27","i-0187e7c24f64c3231","i-0feb7555ef36ccde9","i-04808f96962a4d58a","i-0d67c67ccc37df029","i-0c83e18d59f52617f","i-034c88f2f1a30177b"]  # Add your instance IDs here
 
 logging.basicConfig(filename='script_logs.log', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger()
